@@ -15,6 +15,7 @@ namespace BMSTUCraft_Launcher
 
         public MainWindow()
         {
+            InitializeComponent();
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
@@ -90,11 +91,10 @@ namespace BMSTUCraft_Launcher
 
         private void settingsButton_Click(object sender, RoutedEventArgs e)
         {
-            //SettingsForm settingsForm = new SettingsForm();
-            //settingsForm.ShowDialog();
-            //launcher.nickName = settingsForm.nickName;
-            //launcher.maxMem = settingsForm.RAM * 512;
-            //settingsForm.Dispose();
+            SettingsWindow settingsWindow = new SettingsWindow();
+            settingsWindow.ShowDialog();
+            launcher.nickName = settingsWindow.nickName;
+            launcher.maxMem = settingsWindow.RAM;
         }
     }
 }
