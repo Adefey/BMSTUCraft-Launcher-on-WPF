@@ -96,5 +96,13 @@ namespace BMSTUCraft_Launcher
             launcher.nickName = settingsWindow.nickName;
             launcher.maxMem = settingsWindow.RAM;
         }
+
+        private void mainWindow_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
     }
 }

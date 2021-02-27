@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BMSTUCraft_Launcher"
         mc:Ignorable="d"
-        Title="BMSTUCraft Launcher" Height="550" Width="900" FontSize="20" FontFamily="Segoe UI Semibold" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" Visibility="Visible" Activated="mainWindow_Activated">
+        Title="BMSTUCraft Launcher" Height="550" Width="900" FontSize="20" FontFamily="Segoe UI Semibold" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" Visibility="Visible" Activated="mainWindow_Activated" MouseDown="mainWindow_MouseDown">
     <Window.Background>
         <ImageBrush ImageSource="Resources/bg.jpg"/>
     </Window.Background>

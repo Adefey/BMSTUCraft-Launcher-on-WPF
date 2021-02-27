@@ -37,9 +37,17 @@ namespace BMSTUCraft_Launcher
             Close();
         }
 
-        private void RAMSlider_DragEnter(object sender, DragEventArgs e)
+        private void RAMSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             RAMInfoLabel.Content = $"Выбрано {(int)RAMSlider.Value * 512}МБ";
+        }
+
+        private void Window_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
         }
     }
 }
