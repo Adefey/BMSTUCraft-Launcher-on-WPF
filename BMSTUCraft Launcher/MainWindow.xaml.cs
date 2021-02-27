@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+using System.IO.Compression;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BMSTUCraft_Launcher
 {
@@ -22,10 +11,10 @@ namespace BMSTUCraft_Launcher
     /// </summary>
     public partial class MainWindow : Window
     {
-        GameLauncher launcher = new GameLauncher();
+        private GameLauncher launcher = new GameLauncher();
 
         public MainWindow()
-        {        
+        {
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
@@ -68,22 +57,43 @@ namespace BMSTUCraft_Launcher
             {
                 infoLabel.Content = "Установлено";
             }
+        }
 
-            private void WebClient_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        private void WebClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            infoLabel.Content = $"Загрузка {e.ProgressPercentage}%";
+            infoProgressBar.Value = e.ProgressPercentage;
+        }
+
+        private void WebClient_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        {
+            infoLabel.Content = "Распаковка";
+            ZipFile.ExtractToDirectory(gameInfo.roamingFolder + @"/.bmtucraft.zip", gameInfo.minecraftFolder);
+            File.Delete(gameInfo.roamingFolder + @"/.bmtucraft.zip");
+            infoLabel.Content = "Установлено";
+            infoProgressBar.Visibility = Visibility.Hidden;
+        }
+
+        private void playButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (gameInfo.isInstalled())
             {
-                infoLabel.Text = "Распаковка";
-                ZipFile.ExtractToDirectory(gameInfo.roamingFolder + @"/.bmtucraft.zip", gameInfo.minecraftFolder);
-                File.Delete(gameInfo.roamingFolder + @"/.bmtucraft.zip");
-                infoLabel.Text = "Установлено";
-                installProgressBar.Visible = false;
+                launcher.RunMinecraft();
+                infoLabel.Content = "Запущено";
             }
-
-
-            private void WebClient_DownloadProgressChanged(object sender, System.Net.DownloadProgressChangedEventArgs e)
+            else
             {
-                infoLabel.Text = $"Загрузка {e.ProgressPercentage}%";
-                installProgressBar.Value = e.ProgressPercentage;
+                infoLabel.Content = "Проблема с установкой";
             }
+        }
+
+        private void settingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            //SettingsForm settingsForm = new SettingsForm();
+            //settingsForm.ShowDialog();
+            //launcher.nickName = settingsForm.nickName;
+            //launcher.maxMem = settingsForm.RAM * 512;
+            //settingsForm.Dispose();
         }
     }
 }
