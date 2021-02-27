@@ -80,6 +80,7 @@ namespace BMSTUCraft_Launcher
             {
                 launcher.RunMinecraft();
                 infoLabel.Content = "Запущено";
+                WindowState = WindowState.Minimized;
             }
             else
             {
