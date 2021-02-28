@@ -28,7 +28,7 @@ namespace BMSTUCraft_Launcher
             WindowState = WindowState.Minimized;
         }
 
-        private void mainWindow_Activated(object sender, EventArgs e)
+        private void mainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             if (!GameInfo.isInstalled())
             {
