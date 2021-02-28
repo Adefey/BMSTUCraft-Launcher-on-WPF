@@ -2,6 +2,7 @@
 using System.IO;
 using System.IO.Compression;
 using System.Net;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace BMSTUCraft_Launcher
@@ -66,10 +67,13 @@ namespace BMSTUCraft_Launcher
             infoProgressBar.Value = e.ProgressPercentage;
         }
 
-        private void WebClient_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        async private void WebClient_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
             infoLabel.Content = "Распаковка";
-            ZipFile.ExtractToDirectory(GameInfo.roamingFolder + @"/.bmtucraft.zip", GameInfo.minecraftFolder);
+            await Task.Run(() => //костыль с асинхом чтобы не зависало
+            {
+                ZipFile.ExtractToDirectory(GameInfo.roamingFolder + @"/.bmtucraft.zip", GameInfo.minecraftFolder);
+            });
             File.Delete(GameInfo.roamingFolder + @"/.bmtucraft.zip");
             infoLabel.Content = "Установлено";
             infoProgressBar.Visibility = Visibility.Hidden;
@@ -91,14 +95,20 @@ namespace BMSTUCraft_Launcher
 
         private void settingsButton_Click(object sender, RoutedEventArgs e)
         {
-
-            Visibility = Visibility.Hidden;
-            SettingsWindow settingsWindow = new SettingsWindow();
-            settingsWindow.ShowDialog();
-            settingsWindow.WindowState = WindowState.Normal;
-            launcher.nickName = settingsWindow.nickName;
-            launcher.maxMem = settingsWindow.RAM;
-            Visibility = Visibility.Visible;
+            if (GameInfo.isInstalled())
+            {
+                Visibility = Visibility.Hidden;
+                SettingsWindow settingsWindow = new SettingsWindow();
+                settingsWindow.ShowDialog();
+                settingsWindow.WindowState = WindowState.Normal;
+                launcher.nickName = settingsWindow.nickName;
+                launcher.maxMem = settingsWindow.RAM;
+                Visibility = Visibility.Visible;
+            }
+            else
+            {
+                infoLabel.Content = "Проблема с установкой";
+            }
         }
 
         private void mainWindow_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
