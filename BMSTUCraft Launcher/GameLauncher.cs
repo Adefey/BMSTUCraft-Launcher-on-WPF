@@ -9,7 +9,7 @@ namespace BMSTUCraft_Launcher
 {
     public class GameLauncher
     {
-        public int maxMem = 2048;
+        public int maxMem = 3072;
         public string nickName = "Steve";
 
         #region launchSettings
