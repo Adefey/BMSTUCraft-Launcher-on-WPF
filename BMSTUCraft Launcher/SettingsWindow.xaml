@@ -39,7 +39,7 @@
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
             <Label x:Name="RAMInfoLabel" Content="-" HorizontalAlignment="Stretch" Foreground="White" HorizontalContentAlignment="Center" Grid.Row="1"/>
-            <Slider x:Name="RAMSlider" HorizontalAlignment="Stretch"  VerticalAlignment="Center" Minimum="1" SmallChange="0" ValueChanged="RAMSlider_ValueChanged" Value="6"/>
+            <Slider x:Name="RAMSlider" HorizontalAlignment="Stretch"  VerticalAlignment="Center" Minimum="1" SmallChange="0" ValueChanged="RAMSlider_ValueChanged" Value="8" Maximum="16"/>
         </Grid>
     </Grid>
 </Window>
