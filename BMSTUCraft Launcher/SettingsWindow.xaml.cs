@@ -9,7 +9,7 @@ namespace BMSTUCraft_Launcher
     /// Логика взаимодействия для SettingsWindow.xaml
     /// </summary>
     public partial class SettingsWindow : Window
-    {        
+    {
         public string nickName = "Steve";
         public int RAM = 1024;
 

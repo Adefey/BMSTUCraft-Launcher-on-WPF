@@ -9,6 +9,9 @@ namespace BMSTUCraft_Launcher
         public static string roamingFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         public static string minecraftFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"/.bmstucraft";
         public static string cfgPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"/.bmstucraft/launcheroptions.txt";
+        public static string libPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"/.bmstucraft/libraries/";
+        public static string logPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"/.bmstucraft/latestlog.txt";
+        public static string javaPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"/.bmstucraft/Java/jre1.8.0_281/bin/javaw.exe";
         public static bool isInstalled()
         {
             bool res = true;
