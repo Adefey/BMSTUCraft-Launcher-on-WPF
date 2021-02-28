@@ -40,5 +40,6 @@
         <Button x:Name="foldButton" Content="_" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" BorderThickness="3" BorderBrush="#FF00C8C8" Click="foldButton_Click" Foreground="#FFFFFFE1"/>
         <Button x:Name="playButton" Content="Играть" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" BorderThickness="3" BorderBrush="#FF00C800" Foreground="White" Click="playButton_Click"/>
         <Button x:Name="settingsButton" Content="Настройки" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" BorderThickness="3" BorderBrush="#FFC8C800" Foreground="White" Click="settingsButton_Click"/>
+        <Label x:Name="creditsLabel" Content="Лаунчер BMSTUCraft" HorizontalAlignment="Center" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Foreground="White" />
     </Grid>
 </Window>

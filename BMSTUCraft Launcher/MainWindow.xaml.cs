@@ -91,10 +91,14 @@ namespace BMSTUCraft_Launcher
 
         private void settingsButton_Click(object sender, RoutedEventArgs e)
         {
+
+            Visibility = Visibility.Hidden;
             SettingsWindow settingsWindow = new SettingsWindow();
             settingsWindow.ShowDialog();
+            settingsWindow.WindowState = WindowState.Normal;
             launcher.nickName = settingsWindow.nickName;
             launcher.maxMem = settingsWindow.RAM;
+            Visibility = Visibility.Visible;
         }
 
         private void mainWindow_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
