@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Windows;
 
 
@@ -8,9 +9,10 @@ namespace BMSTUCraft_Launcher
 {
     public class GameLauncher
     {
-        public int maxMem = 512 * 2;
+        public int maxMem = 2048;
         public string nickName = "Steve";
         private string logPath;
+        private string cfgPath;
 
         #region launchSettings
         private Process minecraftInstance;
@@ -43,6 +45,14 @@ namespace BMSTUCraft_Launcher
             javaPath = minecraftFolder + @"/Java/jre1.8.0_281/bin/javaw.exe";
             libPath = minecraftFolder + @"/libraries/";
             logPath = minecraftFolder + @"/latest.txt";
+            cfgPath = minecraftFolder + "/launcheroptions.txt";
+
+            if (File.Exists(cfgPath))
+            {
+                string[] launcherOptions = File.ReadLines(cfgPath).ToArray();
+                nickName = launcherOptions[0];
+                maxMem = Convert.ToInt32(launcherOptions[1]);
+            }
         }
 
         private void FillParams()

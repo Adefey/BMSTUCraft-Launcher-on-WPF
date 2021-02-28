@@ -30,12 +30,12 @@ namespace BMSTUCraft_Launcher
 
         private void mainWindow_Activated(object sender, EventArgs e)
         {
-            if (!gameInfo.isInstalled())
+            if (!GameInfo.isInstalled())
             {
                 infoLabel.Content = "Установка игры";
                 try
                 {
-                    Directory.Delete(gameInfo.minecraftFolder, true);
+                    Directory.Delete(GameInfo.minecraftFolder, true);
                 }
                 catch (DirectoryNotFoundException)
                 {
@@ -45,7 +45,7 @@ namespace BMSTUCraft_Launcher
                 WebClient webClient = new WebClient();
                 try
                 {
-                    webClient.DownloadFileAsync(new Uri(gameInfo.url), gameInfo.roamingFolder + @"/.bmtucraft.zip");
+                    webClient.DownloadFileAsync(new Uri(GameInfo.url), GameInfo.roamingFolder + @"/.bmtucraft.zip");
                     webClient.DownloadProgressChanged += WebClient_DownloadProgressChanged;
                     webClient.DownloadFileCompleted += WebClient_DownloadFileCompleted;
                 }
@@ -69,15 +69,15 @@ namespace BMSTUCraft_Launcher
         private void WebClient_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
             infoLabel.Content = "Распаковка";
-            ZipFile.ExtractToDirectory(gameInfo.roamingFolder + @"/.bmtucraft.zip", gameInfo.minecraftFolder);
-            File.Delete(gameInfo.roamingFolder + @"/.bmtucraft.zip");
+            ZipFile.ExtractToDirectory(GameInfo.roamingFolder + @"/.bmtucraft.zip", GameInfo.minecraftFolder);
+            File.Delete(GameInfo.roamingFolder + @"/.bmtucraft.zip");
             infoLabel.Content = "Установлено";
             infoProgressBar.Visibility = Visibility.Hidden;
         }
 
         private void playButton_Click(object sender, RoutedEventArgs e)
         {
-            if (gameInfo.isInstalled())
+            if (GameInfo.isInstalled())
             {
                 launcher.RunMinecraft();
                 infoLabel.Content = "Запущено";

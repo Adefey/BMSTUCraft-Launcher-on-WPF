@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.IO.Compression;
-using System.Net;
+using System.Linq;
 using System.Windows;
 
 namespace BMSTUCraft_Launcher
@@ -11,13 +9,22 @@ namespace BMSTUCraft_Launcher
     /// Логика взаимодействия для SettingsWindow.xaml
     /// </summary>
     public partial class SettingsWindow : Window
-    {
+    {        
         public string nickName = "Steve";
         public int RAM = 1024;
 
         public SettingsWindow()
         {
             InitializeComponent();
+
+            if (File.Exists(GameInfo.cfgPath))
+            {
+                string[] launcherOptions = File.ReadLines(GameInfo.cfgPath).ToArray();
+                nickName = launcherOptions[0];
+                RAM = Convert.ToInt32(launcherOptions[1]);
+                nickTextBox.Text = nickName;
+                RAMSlider.Value = RAM / 512;
+            }
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
@@ -34,6 +41,7 @@ namespace BMSTUCraft_Launcher
         {
             nickName = nickTextBox.Text;
             RAM = (int)RAMSlider.Value * 512;
+            File.WriteAllText(GameInfo.cfgPath, $"{nickName}\r\n{RAM}");
             Close();
         }
 
