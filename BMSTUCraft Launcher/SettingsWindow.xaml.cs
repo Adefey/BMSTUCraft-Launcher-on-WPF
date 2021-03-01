@@ -10,8 +10,9 @@ namespace BMSTUCraft_Launcher
     /// </summary>
     public partial class SettingsWindow : Window
     {
-        public string nickName = "Steve";
-        public int RAM = 1024;
+        public string nickName = GameInfo.baseNick;
+        public int RAM = GameInfo.baseRAM;
+        MainWindow mainWindow;
 
         public SettingsWindow()
         {
@@ -37,6 +38,11 @@ namespace BMSTUCraft_Launcher
             WindowState = WindowState.Minimized;
         }
 
+        public void SendMainWindowInstance(MainWindow mainWindow) 
+        {
+            this.mainWindow = mainWindow;
+        } 
+
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
             nickName = nickTextBox.Text;
@@ -56,6 +62,18 @@ namespace BMSTUCraft_Launcher
             {
                 DragMove();
             }
+        }
+
+        private void reinstallButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.InstallGame();
+            Close();
+        }
+
+        private void deleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            GameInfo.DeleteGame();
+            Close();
         }
     }
 }

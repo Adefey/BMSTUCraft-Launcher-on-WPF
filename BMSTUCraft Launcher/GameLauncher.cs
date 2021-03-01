@@ -9,8 +9,8 @@ namespace BMSTUCraft_Launcher
 {
     public class GameLauncher
     {
-        public int maxMem = 4096;
-        public string nickName = "Steve";
+        public int maxMem = GameInfo.baseRAM;
+        public string nickName = GameInfo.baseNick;
 
         #region launchSettings
         private Process minecraftInstance;

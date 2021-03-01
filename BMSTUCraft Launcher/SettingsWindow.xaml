@@ -28,9 +28,9 @@
         <Button x:Name="saveButton" Content="Сохранить" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" BorderThickness="3" BorderBrush="#FF00C800" Click="saveButton_Click" Foreground="White" Grid.ColumnSpan="3"/>
         <Label Content="Введите ваш ник в игре" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Foreground="White" Grid.ColumnSpan="2"/>
         <Label Content="Выберите количество ОЗУ" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center"  Foreground="White"/>
-        <TextBox x:Name="nickTextBox" Grid.ColumnSpan="3" Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="Steve" VerticalAlignment="Center" Background="#00000000" Foreground="White"/>
+        <TextBox x:Name="nickTextBox" Grid.ColumnSpan="2" Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="Steve" VerticalAlignment="Center" Background="#00000000" Foreground="White"/>
         <Label x:Name="creditsLabel" Grid.ColumnSpan="3" Content="Настройки игры" HorizontalAlignment="Center" VerticalAlignment="Stretch" Foreground="White"/>
-        <Grid x:Name="infoGrid" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3">
+        <Grid x:Name="infoGrid" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
@@ -41,6 +41,8 @@
             <Label x:Name="RAMInfoLabel" Content="-" HorizontalAlignment="Stretch" Foreground="White" HorizontalContentAlignment="Center" Grid.Row="1"/>
             <Slider x:Name="RAMSlider" HorizontalAlignment="Stretch"  VerticalAlignment="Center" Minimum="1" SmallChange="0" ValueChanged="RAMSlider_ValueChanged" Value="8" Maximum="16"/>
         </Grid>
+        <Button x:Name="reinstallButton" Content="Переустановить" Grid.Column="4" HorizontalAlignment="Stretch" Height="60" Grid.Row="1" VerticalAlignment="Center" Background="#00DDDDDD" BorderBrush="#FFC8C800" BorderThickness="3" Foreground="White" Click="reinstallButton_Click" />
+        <Button x:Name="deleteButton" Content="Удалить" Grid.Column="4" HorizontalAlignment="Stretch" Height="60" Grid.Row="2" VerticalAlignment="Center" Background="#00DDDDDD" BorderBrush="#FFC80000" BorderThickness="3" Foreground="White" Click="deleteButton_Click" Margin="0,45,0,68" />
     </Grid>
 </Window>
 
