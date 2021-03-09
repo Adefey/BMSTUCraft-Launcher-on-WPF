@@ -18,6 +18,7 @@ namespace BMSTUCraft_Launcher
         public MainWindow()
         {
             InitializeComponent();
+            launcher.SendMainWindowInstance(this);
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
@@ -31,10 +32,14 @@ namespace BMSTUCraft_Launcher
         }
 
         private void mainWindow_Activated(object sender, EventArgs e)
-        {      
-            if ((GameInfo.IsInstalled())&&(!webClient.IsBusy))
+        {
+            if ((GameInfo.IsInstalled()) && (!webClient.IsBusy))
             {
-                infoLabel.Content = "Установлено";
+                infoLabel.Content = $"Добро пожаловать, {launcher.nickName}";
+            }
+            else if (webClient.IsBusy)
+            {
+                infoLabel.Content = "Игра загружается";
             }
             else
             {
@@ -58,7 +63,7 @@ namespace BMSTUCraft_Launcher
                 }
                 else
                 {
-                    infoLabel.Content = "Устанавливается";
+                    infoLabel.Content = "Загружается";
                 }
             }
         }

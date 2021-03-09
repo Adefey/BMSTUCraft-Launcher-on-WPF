@@ -12,7 +12,7 @@ namespace BMSTUCraft_Launcher
     {
         public string nickName = GameInfo.baseNick;
         public int RAM = GameInfo.baseRAM;
-        MainWindow mainWindow;
+        private MainWindow mainWindow;
 
         public SettingsWindow()
         {
@@ -38,10 +38,10 @@ namespace BMSTUCraft_Launcher
             WindowState = WindowState.Minimized;
         }
 
-        public void SendMainWindowInstance(MainWindow mainWindow) 
+        public void SendMainWindowInstance(MainWindow mainWindow)
         {
             this.mainWindow = mainWindow;
-        } 
+        }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
