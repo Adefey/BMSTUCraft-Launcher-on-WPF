@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BMSTUCraft_Launcher"
         mc:Ignorable="d"
-        Title="Settings" Height="450" Width="800" FontSize="20" WindowStyle="None" FontFamily="Segoe UI Semibold" WindowStartupLocation="CenterScreen" AllowsTransparency="True" MouseDown="Window_MouseDown">
+        Title="Settings" Height="450" Width="800" FontSize="20" FontFamily="Segoe UI Semibold" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown">
     <Window.Background>
         <ImageBrush ImageSource="Resources/bg.jpg"/>
     </Window.Background>
@@ -23,8 +23,6 @@
             <ColumnDefinition Width="0.5*" />
             <ColumnDefinition Width="0.5*" />
         </Grid.ColumnDefinitions>
-        <Button x:Name="closeButton" Content="X" Grid.Column="4" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" BorderThickness="3" BorderBrush="#FFFFFFFF" Click="closeButton_Click" Foreground="White"/>
-        <Button x:Name="foldButton" Content="_" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" BorderThickness="3" BorderBrush="#FFFFFFFF" Click="foldButton_Click" Foreground="White"/>
         <Button x:Name="saveButton" Content="Сохранить" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" BorderThickness="3" BorderBrush="#FF00C800" Click="saveButton_Click" Foreground="White" Grid.ColumnSpan="1"/>
         <Label Content="Введите ваш ник в игре" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Foreground="White" Grid.ColumnSpan="2"/>
         <Label Content="Выберите количество ОЗУ" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center"  Foreground="White"/>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BMSTUCraft_Launcher"
         mc:Ignorable="d"
-        Title="BMSTUCraft Launcher" Height="550" Width="900" FontSize="20" FontFamily="Segoe UI Semibold" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" Visibility="Visible" MouseDown="mainWindow_MouseDown" Activated="mainWindow_Activated">
+        Title="BMSTUCraft Launcher" Height="550" Width="900" FontSize="20" FontFamily="Segoe UI Semibold" WindowStartupLocation="CenterScreen" Visibility="Visible" MouseDown="mainWindow_MouseDown" Activated="mainWindow_Activated">
     <Window.Background>
         <ImageBrush ImageSource="Resources/bg.jpg"/>
     </Window.Background>
@@ -23,7 +23,6 @@
             <ColumnDefinition Width="0.5*" />
             <ColumnDefinition Width="0.5*" />
         </Grid.ColumnDefinitions>
-
         <Grid x:Name="infoGrid" Grid.Row="2" Grid.Column="2" VerticalAlignment="Stretch" Grid.ColumnSpan="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
@@ -36,8 +35,6 @@
             <ProgressBar x:Name="infoProgressBar" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" Visibility="Hidden" Grid.ColumnSpan="2" BorderBrush="White" Foreground="#FF8000FF" Background="#00000000"/>
         </Grid>
 
-        <Button x:Name="closeButton" Content="X" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" BorderThickness="3" BorderBrush="#FFFFFFFF" Click="closeButton_Click" Foreground="White"/>
-        <Button x:Name="foldButton" Content="_" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" BorderThickness="3" BorderBrush="#FFFFFFFF" Click="foldButton_Click" Foreground="#FFFFFFE1"/>
         <Button x:Name="playButton" Content="Играть" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" BorderThickness="3" BorderBrush="#FF00C800" Foreground="White" Click="playButton_Click"/>
         <Button x:Name="settingsButton" Content="Настройки" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" BorderThickness="3" BorderBrush="#FFC8C800" Foreground="White" Click="settingsButton_Click"/>
         <Label x:Name="creditsLabel" Content="Лаунчер BMSTUCraft" HorizontalAlignment="Center" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Foreground="White" />

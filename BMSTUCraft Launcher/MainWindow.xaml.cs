@@ -19,17 +19,7 @@ namespace BMSTUCraft_Launcher
         {
             InitializeComponent();
             launcher.SendMainWindowInstance(this);
-        }
-
-        private void closeButton_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void foldButton_Click(object sender, RoutedEventArgs e)
-        {
-            WindowState = WindowState.Minimized;
-        }
+        }     
 
         private void mainWindow_Activated(object sender, EventArgs e)
         {
